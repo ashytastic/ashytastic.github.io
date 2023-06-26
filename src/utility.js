@@ -48,7 +48,7 @@ async function fetchData(){
 
 
 async function fetchTypeChart(){
-    const rawTypeChart = await fetch("https://raw.githubusercontent.com/ydarissep/inclement-emerald-pokedex/main/src/typeChart.json")
+    const rawTypeChart = await fetch("https://raw.githubusercontent.com/ashytastic/ashytastic.github.io/main/src/typeChart.json")
     window.typeChart = await rawTypeChart.json()
 }
 
