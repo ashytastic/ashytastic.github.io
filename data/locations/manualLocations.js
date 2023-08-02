@@ -70,7 +70,7 @@
 			"SPECIES_AMAURA": 100
 		}
 	},
-	"Check docs :)": {
+	"Other Locations: ": {
 		"Trade": {
 			"SPECIES_CARNIVINE": 100,
 			"SPECIES_EISCUE": 100,
