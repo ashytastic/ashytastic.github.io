@@ -33,6 +33,33 @@
 </head>
 <body>
 
+<div class="flex flexCenter flexColumn">
+  <h1>Radical Red<br>Pokedex</h1>
+  <button type="button" id="openCredits">Credits</button>
+  <dialog class="modal hide" id="modal">
+    <ul>  
+      <li>Credit to ris#0001 for
+        <ul>
+          <li>Night theme</li>
+          <li>Sprite background removal function</li>
+          <li>Back to top button</li>
+          <li>Species stats graph</li>
+          <li>Helping with CSS</li>
+          <li>Bitching and moaning about my CSS while this is literally my first ever website.</li>
+        </ul>  
+      </li>  
+	  <li>Credit to Ydarissep for
+        <ul>
+          <li>Creating the Pokédex</li>
+          <li>Contribution to the server/game and it's moderation</li>
+        </ul>  
+      </li>
+    </ul>
+    <button type="button" id="closeCredits">OK</button>
+  </dialog>
+</div>
+
+
 
 
 
@@ -236,14 +263,11 @@
     <button type="button" id="locationsButton">Locations</button>
   </div>
 
-
-
-
   <div id="tableFilter" class="hide">
     <div id="abilitiesFilter" class="hide">
       <div id="abilitiesFilterList" class="filterList"></div>
       <div id="abilitiesFilterContainer" class="filterContainer"></div>
-    </div>
+  </div>
 
     <div id="speciesFilter" class="activeFilter">
 
@@ -339,27 +363,9 @@
 </body>
 
 <footer id="footer" class="flex flexCenter flexColumn">
-  <h1>Radical Red<br>Pokedex</h1>
 
   <noscript>This page requires JavaScript.</noscript>
-  
-  <button type="button" id="openCredits" class="hide">Credits</button>
-  <dialog class="modal hide" id="modal">
-    <ul>  
-      <li>Credit to ris#0001 for
-        <ul>
-          <li>Night theme</li>
-          <li>Sprite background removal function</li>
-          <li>Back to top button</li>
-          <li>Species stats graph</li>
-          <li>Helping with CSS</li>
-          <li>Bitching and moaning about my CSS while this is literally my first ever website.</li>
-        </ul>  
-      </li>  
-    </ul>
-    <button type="button" id="closeCredits">OK</button>
-  </dialog>
-
+  <br></br>
   <button type="button" id="update" class="hide">Update</button>
   
 </footer>
