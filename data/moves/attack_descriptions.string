@@ -7,6 +7,9 @@ No move information.
 #org @DESC_SNOWSCAPE
 A 5-turn snowstorm\nthat boosts the Def\nof Ice-types.
 
+#org @DESC_HAIL
+A 5-turn snowstorm\nthat boosts the Def\nof Ice-types.
+
 #org @DESC_ICEBEAM
 The foe is struck\nwith an icy beam.\nIt may leave the\ntarget frostbitten. 
 
