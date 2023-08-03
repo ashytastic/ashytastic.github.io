@@ -29,6 +29,14 @@ async function getVanillaMovesDescription(moves){
     return regexVanillaMovesDescription(textVanillaMovesDescription, moves)
 }
 
+async function getMovesFlags(moves){
+    const rawMovesFlags = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/moves/move_tables.s`)
+    const textMovesFlags = await rawMovesFlags.text()
+
+    return regexMovesFlags(textMovesFlags, moves)
+}
+
+
 
 
 async function buildMovesObj(){

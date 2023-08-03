@@ -322,6 +322,18 @@ function regexVanillaMovesDescription(textVanillaMovesDescription, moves){
     return moves
 }
 
+function regexMovesFlags(textMovesFlags, moves){
+    Object.keys(textMovesFlags).forEach(key => {
+        for(let i = 0; i < textMovesFlags[key].length; i++){
+            const move = textMovesFlags[key][i]
+            if(move in moves){
+                moves[move]["flags"].push(key.replace(/([A-Z])/g, '_$1').replace(/^g/i, "FLAG").toUpperCase())
+            }
+        }
+    })
+    return moves
+}
+
 
 
 
