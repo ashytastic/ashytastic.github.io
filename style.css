@@ -403,3 +403,7 @@ td, th {
     cursor: pointer;
     background: rgba(215, 212, 231, 0.4) !important;
 }
+
+#update {
+    margin-top: 50px;
+}
