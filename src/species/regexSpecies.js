@@ -241,7 +241,7 @@ async function regexTMHMLearnsets(textTMHMLearnsets, species, start, end){
                 else if(move === "Acrobatics")
                     move = "Smart Strike"
 
-                const rawTMHM = fetch(`https://raw.githubusercontent.com/ashytastic/ashytastic.github.io/main/data/species/tm_compatibility/${count} - ${move}.txt`)
+                const rawTMHM = fetch(`https://raw.githubusercontent.com/${repo}/main/data/species/tm_compatibility/${count} - ${move}.txt`)
                 .then(promises => {
                     const textTMHM = promises.text()
                     .then(promises => {
@@ -255,7 +255,7 @@ async function regexTMHMLearnsets(textTMHMLearnsets, species, start, end){
 
                             const matchSpecies = `SPECIES_${line.trim().toUpperCase()}`
                             if(species[matchSpecies])
-                                species[matchSpecies]["TMHMLearnsets"].push([matchMove[0], TMHM])
+                                species[matchSpecies]["TMHMLearnsets"].push(matchMove[0])
                         })
                     })
                 })
@@ -295,7 +295,7 @@ async function regexTutorLearnsets(textTutorLearnsets, species, start, end){
                 count++
 
                 if(filterUnusedTutor.includes(move)){
-                    const rawTutor = fetch(`https://raw.githubusercontent.com/ashytastic/ashytastic.github.io/main/data/species/tutor_compatibility/${count} - ${move}.txt`)
+                    const rawTutor = fetch(`https://raw.githubusercontent.com/${repo}/main/data/species/tutor_compatibility/${count} - ${move}.txt`)
                     .then(promises => {
                         const textTutor = promises.text()
                         .then(promises => {
@@ -311,7 +311,7 @@ async function regexTutorLearnsets(textTutorLearnsets, species, start, end){
 
                                 const matchSpecies = `SPECIES_${line.trim().toUpperCase()}`
                                 if(species[matchSpecies])
-                                    species[matchSpecies]["tutorLearnsets"].push([matchMove[0], ID])
+                                    species[matchSpecies]["tutorLearnsets"].push(matchMove[0])
                             })
                         })
                     })
@@ -362,27 +362,28 @@ async function regexEvolution(textEvolution, species){
 }
 
 async function getEvolutionLine(species){
-    for(let i = 0; i < 2; i++) // FUTURE ME DO NOT DARE QUESTION ME
-    {
-        for(const name of Object.keys(species)){
+    for (const name of Object.keys(species)){
+        let evolutionLine = [name]
 
-            for (let j = 0; j < species[name]["evolution"].length; j++){
-
-                const targetSpecies = species[name]["evolution"][j][2]
-                species[name]["evolutionLine"].push(targetSpecies)
+        for(let i = 0; i < evolutionLine.length; i++){
+            const targetSpecies = evolutionLine[i]
+            for(let j = 0; j < species[evolutionLine[i]]["evolution"].length; j++){
+                const targetSpeciesEvo = species[targetSpecies]["evolution"][j][2]
+                if(!evolutionLine.includes(targetSpeciesEvo)){
+                    evolutionLine.push(targetSpeciesEvo)
+                }
             }
+        }
 
-
-
-            for (let j = 0; j < species[name]["evolution"].length; j++){
-
-                const targetSpecies = species[name]["evolution"][j][2]
-                species[targetSpecies]["evolutionLine"] = species[name]["evolutionLine"]
+        for(let i = 0; i < evolutionLine.length; i++){
+            const targetSpecies = evolutionLine[i]
+            if(evolutionLine.length > species[targetSpecies]["evolutionLine"].length){
+                species[targetSpecies]["evolutionLine"] = evolutionLine
             }
         }
     }
 
-    for(const name of Object.keys(species)){
+    for (const name of Object.keys(species)){
         species[name]["evolutionLine"] = Array.from(new Set(species[name]["evolutionLine"])) // remove duplicates
     }
 
@@ -505,7 +506,7 @@ async function regexSprite(textSprite, species){
 
             const matchURL = line.match(/gFrontSprite\w+Tiles/i)
             if(matchURL){
-                let url = `https://raw.githubusercontent.com/ashytastic/ashytastic.github.io/main/data/species/frontspr/${matchURL[0].replace("Tiles", ".png")}`
+                let url = `https://raw.githubusercontent.com/${repo}/main/data/species/frontspr/${matchURL[0].replace("Tiles", ".png")}`
 
                 species[name]["sprite"] = url
             }
