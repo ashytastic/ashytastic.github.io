@@ -278,6 +278,9 @@ function regexVanillaMovesDescription(textVanillaMovesDescription, moves){
         if(move){
             move = move[0].replace(/_/g, "").replace(/MOVE/i, "MOVE_")
 			
+			if(move === "MOVE_HAIL")
+				move = "MOVE_SNOWSCAPE"
+			
             /*
             if(move === "MOVE_FAINTATTACK")
                 move = "MOVE_FEINTATTACK"
