@@ -4197,22 +4197,6 @@ const struct BattleMove gBattleMoves[] =
 		.split = SPLIT_STATUS,
 		.z_move_effect = Z_EFFECT_SPD_UP_1
 	},
-	
-	[MOVE_SNOWSCAPE] =
-	{
-		.effect = EFFECT_HAIL,
-		.power = 0,
-		.type = TYPE_ICE,
-		.accuracy = 0,
-		.pp = 10,
-		.secondaryEffectChance = 0,
-		.target = MOVE_TARGET_USER,
-		.priority = 0,
-		.flags = 0,
-		.z_move_power = 0,
-		.split = SPLIT_STATUS,
-		.z_move_effect = Z_EFFECT_SPD_UP_1
-	},
 
 	[MOVE_TORMENT] =
 	{
