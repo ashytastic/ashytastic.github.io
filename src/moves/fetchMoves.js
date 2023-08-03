@@ -38,7 +38,7 @@ async function buildMovesObj(){
     moves = await getMovesDescription(moves)
     moves = await getMovesIngameName(moves)
 	
-	moves[MOVE_HAIL]["ingameName"]="Snowscape"
+	moves["MOVE_HAIL"]["ingameName"]="Snowscape"
 
     await localStorage.setItem("moves", LZString.compressToUTF16(JSON.stringify(moves)))
     return moves
