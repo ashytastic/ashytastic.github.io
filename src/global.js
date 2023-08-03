@@ -369,11 +369,9 @@ const options = {
 function footerIsTouching(entries){
     if(entries[0].isIntersecting){
         lazyLoading(false)
-        openCredits.classList.remove("hide")
         update.classList.remove("hide")
     }
     else{
-        openCredits.classList.add("hide")   
         update.classList.add("hide")
     }
 }
