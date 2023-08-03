@@ -245,7 +245,7 @@ function regexMovesIngameName(textMovesIngameName, moves){
             const test = `MOVE_${line.trim().replace(/ |-|_|'/g, "").toUpperCase()}`
             if(moves[test] != undefined)
                 moves[test]["ingameName"] = line.trim()
-			if (matchNameLong == "NAME_LONG_HAIL")
+			if (NameLong == "MOVE_HAIL")
 				nameLong = `MOVE_SNOWSCAPE`
         }
     })
