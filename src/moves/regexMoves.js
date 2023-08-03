@@ -327,7 +327,7 @@ function regexMovesFlags(textMovesFlags, moves){
         for(let i = 0; i < textMovesFlags[key].length; i++){
             const move = textMovesFlags[key][i]
             if(move in moves){
-                moves[move]["flags"].push(key.replace(/([A-Z])/g, '_$1').replace(/^g/i, "FLAG").toUpperCase())
+                moves[move]["flags"].push(key.replace(/g(\w+):/).replace(/^g/i, "FLAG").toUpperCase())
             }
         }
     })
