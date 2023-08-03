@@ -240,6 +240,9 @@ function regexMovesIngameName(textMovesIngameName, moves){
                 nameLongFound = true
                 move.push(`${nameLongReplaced}_P`)
             }
+			if(moves[nameLong] == "Hail"){
+				nameLong = "Snowscape"
+			}
         }
         else{
             const test = `MOVE_${line.trim().replace(/ |-|_|'/g, "").toUpperCase()}`
