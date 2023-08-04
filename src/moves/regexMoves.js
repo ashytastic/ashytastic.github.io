@@ -322,15 +322,18 @@ function regexVanillaMovesDescription(textVanillaMovesDescription, moves){
     return moves
 }
 
-function regexMovesFlags(textMovesFlags, moves){
-    Object.keys(textMovesFlags).forEach(key => {
-        for(let i = 0; i < textMovesFlags[key].length; i++){
-            const move = textMovesFlags[key][i]
+async function regexMovesFlags(textMovesFlags, moves){
+    await lines.forEach(line => {
+    	if(line.includes(/g(\w+):/))
+      	startFound = true
+    	
+      if(startFound) {
             if(move in moves){
                 moves[move]["flags"].push(key.replace(/g(\w+):/).replace(/^g/i, "FLAG").toUpperCase())
-            }
-        }
-    })
+            	}
+          }
+       }
+    )
     return moves
 }
 
