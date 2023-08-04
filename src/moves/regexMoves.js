@@ -322,18 +322,21 @@ function regexVanillaMovesDescription(textVanillaMovesDescription, moves){
     return moves
 }
 
-async function regexMovesFlags(textMovesFlags, moves){
-    await lines.forEach(line => {
-    	if(line.includes(/g(\w+):/))
-      	startFound = true
-    	
-      if(startFound) {
-            if(move in moves){
-                moves[move]["flags"].push(key.replace(/g(\w+):/).replace(/^g/i, "FLAG").toUpperCase())
-            	}
-          }
-       }
-    )
+function regexMovesFlags(textMovesFlags, moves){
+    const lines = textMovesFlags.split("\n")
+    let flagName = "placeHolder"
+
+    lines.forEach(line => {
+        if(/g(.*):/i.test(line)){ // example: gGravityBannedMoves:
+            flagName = line.match(/g(\w+):/i)[1].replace(/([A-Z])/g, ' $1').trim()
+        }
+        
+        const matchMove = line.match(/MOVE_\w+/i)
+        if(matchMove && moves[matchMove[0]]){ // if something match and move exist
+            moves[matchMove[0]]["flags"].push(flagName) 
+        }
+    })
+
     return moves
 }
 
