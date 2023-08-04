@@ -328,7 +328,7 @@ function regexMovesFlags(textMovesFlags, moves){
 
     lines.forEach(line => {
         if(/g(.*):/i.test(line)){ // example: gGravityBannedMoves:
-            flagName = line.match(/g(\w+):/i)[1].replace(/([A-Z])/g, ' $1').trim()
+            flagName = line.match(/g(\w+):/i)[1].replace(/([A-Z])/g, ' $1')
         }
         
         const matchMove = line.match(/MOVE_\w+/i)
