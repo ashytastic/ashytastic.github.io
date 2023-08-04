@@ -21,7 +21,7 @@ function appendMovesToTable(moveName){
     nameContainer.append(name)
     nameContainer.append(ingameName)
 	
-	if(gHardcoreBannedMoves.includes(moves[moveName]["name"])){
+	if(hardcoreRestricted.includes(moves[moveName]["name"])){
         ingameName.style.color = "#FF8F8F"
     }
 
