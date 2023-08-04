@@ -24,6 +24,10 @@ function appendMovesToTable(moveName){
     if(hardcoreRestricted.includes(moves[moveName]["name"])){
         ingameName.style.color = "#FF8F8F"
     }
+	
+	if(HardcoreBannedMoves.includes(moves[moveName]["name"])){
+        ingameName.style.color = "#FF8F8F"
+    }
 
     row.append(nameContainer)
 
