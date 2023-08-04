@@ -45,6 +45,7 @@ async function buildMovesObj(){
     moves = await getVanillaMovesDescription(moves)
     moves = await getMovesDescription(moves)
     moves = await getMovesIngameName(moves)
+	moves = await getMovesFlags(moves)
 	
 	moves["MOVE_HAIL"]["ingameName"] = "Snowscape"
 
